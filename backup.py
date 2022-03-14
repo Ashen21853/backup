@@ -74,7 +74,7 @@ class backup :
             ftp = ftplib.FTP(self.ftpIp, self.ftpId, self.ftpPw)
             content = ftp.nlst()
             content.sort()
-            toDel = content[:-5]
+            toDel = content[:-self.ftpRotation]
             for f in toDel :
                 ftp.delete(f)
 
